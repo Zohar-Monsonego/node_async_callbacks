@@ -16,3 +16,17 @@ const path = require("path");
 const filePath = path.join(__dirname, "temp.txt");
 
 // write your code here
+
+fs.access(filePath, fs.constants.F_OK, (err) => {
+  //if the file does not exists
+  if (err) {
+    console.log("File not found.");
+  } else {
+    fs.unlink(filePath, (err) => {
+      if (err) {
+        console.log(err.message);
+      }
+      console.log("File deleted.");
+    });
+  }
+});
