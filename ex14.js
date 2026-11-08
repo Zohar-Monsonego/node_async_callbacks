@@ -18,3 +18,20 @@
 // Run: node ex14.js
 
 // write your code here
+
+function timeOut(counter) {
+  setTimeout(
+    () => {
+      console.log(String(counter));
+
+      if (counter === 0) {
+        console.log("Done!");
+        return;
+      }
+      timeOut(counter - 1);
+    },
+    500 + Math.random() * 1000,
+  );
+}
+
+timeOut(3);
